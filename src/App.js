@@ -7,9 +7,8 @@ import Popup from "./components/Popup";
 import Notification from "./components/Notification";
 
 import { notification as notify } from "./_helpers/helpers";
+import { words } from "./_helpers/words";
 import "./App.css";
-
-const words = ["application", "programming", "interface", "wizard"];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
@@ -20,6 +19,7 @@ function App() {
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {
+    // console.log("random word", selectedWord);
     const handleKeyDown = (event) => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
@@ -48,7 +48,6 @@ function App() {
 
   const play = () => {
     setPlayable(true);
-
     setCorrectLetters([]);
     setWrongLetters([]);
     selectedWord = words[Math.floor(Math.random() * words.length)];
